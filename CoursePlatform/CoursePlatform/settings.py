@@ -30,7 +30,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["c34a-2603-8000-be01-927b-95c4-ecec-f406-a958.ngrok-free.app", "127.0.0.1"]
 
 
 # Application definition
@@ -61,7 +61,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOW_ALL_ORIGIN = True
-CSRF_TRUSTED_ORIGINS = []
+CSRF_TRUSTED_ORIGINS = ["https://c34a-2603-8000-be01-927b-95c4-ecec-f406-a958.ngrok-free.app"]
 
 ROOT_URLCONF = 'CoursePlatform.urls'
 
@@ -146,3 +146,8 @@ LOGIN_REDIRECT_URL = ""
 LOGOUT_REDIRECT_URL = LOGIN_URL
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+if DEBUG:
+    STRIPE_PUBLISHABLE_KEY = env("STRIPE_PK")
+    STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
+    STRIPE_ENDPOINT_SECRET = env("STRIPE_ENDPOINT_SECRET")
